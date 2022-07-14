@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8">
+    <title>Index</title>
+</head>
+<body>
+<table class="table" border="1" style="width: 300px">
+    <td>Users</td>
+    <tr>
+        <td>Id</td>
+        <td>Name</td>
+        <td>Password</td>
+        <td>Edit</td>
+    </tr>
+    <tbody th:each="user:${allUsers}">
+    <tr>
+<!--        <div>-->
+<!--            <td>-->
+<!--                <a th:href="@{/users/{id}(id=${user.getId()})}" th:text="$`{user.getId()}">User</a>-->
+<!--            </td>-->
+<!--        </div>-->
+        <td th:text="${user.getId()}">User</td>
+        <td th:text="${user.getUsername()}">User</td>
+        <td th:text="${user.getPassword()}">User</td>
+        <td>
+            <a th:href="@{/{id}(id=${user.getId()})}" th:text="${user.getId()}">User</a>
+        </td>
+    </tr>
+    </tbody>
+</table>
+<a href="/registration">Create new user</a>
+<a href="/logout">Logout</a>
+</body>
+</html>
